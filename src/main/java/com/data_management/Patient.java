@@ -25,6 +25,15 @@ public class Patient {
     }
 
     /**
+     * Returns patientId associated with the patient.
+     *
+     * @return the unique identifier for the patient as an integer
+     */
+    public int getPatientId() {
+        return patientId;
+    }
+
+    /**
      * Adds a new record to this patient's list of medical records.
      * The record is created with the specified measurement value, record type, and
      * timestamp.
@@ -52,6 +61,12 @@ public class Patient {
      *         range
      */
     public List<PatientRecord> getRecords(long startTime, long endTime) {
-        // TODO Implement and test this method
+        List<PatientRecord> result = new ArrayList<>();
+        for (PatientRecord record : patientRecords) {
+            if (record.getTimestamp() >= startTime && record.getTimestamp() <= endTime) {
+                result.add(record);
+            }
+        }
+        return result;
     }
 }
