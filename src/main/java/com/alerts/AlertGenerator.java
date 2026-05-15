@@ -139,7 +139,7 @@ public class AlertGenerator {
     private void checkBloodSaturation(Patient patient, List<PatientRecord> records) {
         List<PatientRecord> saturationRecords = filterByType(records, "Saturation");
 
-        for (int i = 0; i < records.size(); i++) {
+        for (int i = 0; i < saturationRecords.size(); i++) {
             PatientRecord current = saturationRecords.get(i);
             double value = current.getMeasurementValue();
 
